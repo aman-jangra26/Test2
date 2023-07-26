@@ -30,8 +30,7 @@ cloudinary.config({
 
 // CORS middleware for the API routes
 const corsOptions = {
-  credentials: true,
-  origin: ['http://localhost:3000']
+  credentials: true
 };
 router.use(require('cors')(corsOptions));
 
