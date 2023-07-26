@@ -3,9 +3,19 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const multer = require('multer');
-const uploadMiddleware = multer({ dest: 'uploads/' });
 const fs = require('fs');
 const cloudinary = require('cloudinary').v2;
+
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'blog_images', // Or any folder you prefer in Cloudinary
+    allowed_formats: ['jpg', 'jpeg', 'png'],
+  },
+});
+
+const uploadMiddleware = multer({ storage: storage });
 
 const User = require('./models/User');
 const Post = require('./models/Post');
