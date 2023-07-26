@@ -30,9 +30,8 @@ cloudinary.config({
 
 // CORS middleware for the API routes
 const corsOptions = {
-  credentials: true
-  ,
-  origin:"https://test2-coral-five.vercel.app/"
+  credentials: true,
+  origin: ['http://localhost:3000']
 };
 router.use(require('cors')(corsOptions));
 
@@ -40,15 +39,6 @@ router.use(express.json());
 router.use(require('cookie-parser')());
 
 //for Register
-router.get('/message', (req, res) => {
-  const message = { 
-    status: 'success',
-    message: 'This is a JSON message from the server!',
-  };
-
-  res.json(message);
-});
-
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   try {
