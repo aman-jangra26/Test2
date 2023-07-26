@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 mongoose.connect(process.env.DB_URL);
 
-const routes = require('./api/Index');
+const routes = require('./api/product');
 
 app.use('/api', routes);
 
