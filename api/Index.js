@@ -31,6 +31,8 @@ cloudinary.config({
 // CORS middleware for the API routes
 const corsOptions = {
   credentials: true
+  ,
+  origin:"https://test2-coral-five.vercel.app/"
 };
 router.use(require('cors')(corsOptions));
 
